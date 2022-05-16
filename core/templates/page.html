@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+   <title>Kalkualtor</title>
+</head>
+<body>
+
+
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6" style="margin: 1rem auto 0 auto;">
+      <div class="card">
+        <div class="card-body">
+          <form action="add" method='post'>
+            {% csrf_token %}
+            <div class="form-group">
+              Górna granica: <input type="text" class="form-control"   name="num1" id="query1"> <label>∫</label> <input type="text" class="form-control"  placeholder="np: 4x+8x*x+3" name="num3" id="query3"> Dolna granica: <input type="text" class="form-control"  name="num2" id="query2">
+            </div><input type="submit" class="btn btn-primary"> <input type="reset" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>{% endblock %}
+</div>
+</body>
+</html>
