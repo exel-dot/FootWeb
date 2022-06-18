@@ -18,12 +18,12 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-	path('', views.PageView.as_view()),
+    path('', views.MatchLive, name='matchlive'),
+    path('page-1', views.Random, name='random'),
+    path('', views.PageView.as_view()),
 	path('page-1/', views.PageOneView.as_view()),
 	path('page-2/', views.PageTwoView.as_view()),
     path('page-1', views.PageOneView.as_view()),
 	path('page-2', views.PageTwoView.as_view()),
-	path('add', views.add, name='add'),
-    path('add2', views.add2, name='add2'),
     path('admin/', admin.site.urls),
 ]
