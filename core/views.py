@@ -32,28 +32,28 @@ def MatchLive(request):
     querystring = {"sport_id": "1", "timezone": "-4", "locale": "en_GB"}
 
     headers = {
-        "X-RapidAPI-Key": "c33854867emsh776fd0a23815d81p1ef0e1jsn558e632f5d0d",
+        'X-RapidAPI-Key': "c203beaed3mshdee6ff27c9b3eabp1dd3aejsn60d50c3838fa",
         "X-RapidAPI-Host": "flashscore.p.rapidapi.com"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-    if(response.status_code!=404):
-
-        tablehome = []
-        tableaway = []
-        thomescore=[]
-        timageshome=[]
-        timagesaway=[]
-        turniejtab=[]
-        krajtab = []
-        randomkey=[]
 
 
-        datalength = len(response.json()['DATA'])
+    tablehome = []
+    tableaway = []
+    thomescore=[]
+    timageshome=[]
+    timagesaway=[]
+    turniejtab=[]
+    krajtab = []
+    randomkey=[]
 
-        for j in range(0, datalength):
-            eventslength = len(response.json()['DATA'][j]['EVENTS'])
-            for i in range(0, 1):
+
+    datalength = len(response.json()['DATA'])
+
+    for j in range(0, datalength):
+     eventslength = len(response.json()['DATA'][j]['EVENTS'])
+     for i in range(0, 1):
                 gamerand = random.randint(1, 7659898)
                 druzyna1 = response.json()['DATA'][j]['EVENTS'][i]['HOME_NAME']
                 druzyna2 = response.json()['DATA'][j]['EVENTS'][i]['AWAY_NAME']
@@ -77,30 +77,28 @@ def MatchLive(request):
                 krajtab.append(kraj)
                 randomkey.append(gamerand)
 
-        zipped = zip( tablehome, timageshome  )
-        zipped2 = zip(tableaway, timagesaway)
-        zipped3 = zip(thomescore,randomkey, turniejtab,krajtab)
+    zipped = zip(tablehome, timageshome)
+    zipped2 = zip(tableaway, timagesaway)
+    zipped3 = zip(thomescore, randomkey, turniejtab, krajtab)
+    result_dict = {
+        "cookie": True
+    }
+    if request.COOKIES.get('acceptCookies') == '1':
+        result_dict = {
+            "cookie": False
+        }
 
-        return render(request, 'page.html', {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,'thomescore': thomescore, 'timageshome' : timageshome,
-                                              'zipped': zipped,  'zipped2': zipped2 , 'zipped3': zipped3  } )
+    if request.COOKIES.get('lang')=='en':
+            return render(request, 'pageen.html',
+                          {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,
+                           'thomescore': thomescore, 'timageshome': timageshome,
+                           'zipped': zipped, 'zipped2': zipped2, 'zipped3': zipped3})
     else:
-        tablehome=["Liverpool","Real Madryt"]
-        tableaway = ["Real Madryt", "Man City"]
-        turniejtab=["LIGA MISTRZÓW","LIGA MISTRZÓW"]
-        krajtab=["EUROPA","EUROPA"]
-        thomescore=["0-1","3-1"]
-        timageshome=["https://iconape.com/wp-content/files/ns/164897/png/164897.png","https://www.wikipasy.pl/images/8/86/Real_Madryt_herb.png"]
-        timagesaway = ["https://www.wikipasy.pl/images/8/86/Real_Madryt_herb.png","http://t2.gstatic.com/favicon-tbn?q=tbn:ANd9GcTtRHHTSnRtBatCTYs5ML-8jw-EohIBzoGRxyoOoGA82rBOibER"]
-        zipped = zip(tablehome, timageshome)
-        zipped2 = zip(tableaway, timagesaway)
-        zipped3 = zip(thomescore, tablehome[1], turniejtab, krajtab)
+            return render(request, 'page.html',
+                          {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,
+                           'thomescore': thomescore, 'timageshome': timageshome,
+                           'zipped': zipped, 'zipped2': zipped2, 'zipped3': zipped3})
 
-
-
-        return render(request, 'page.html',
-                      {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,
-                       'thomescore': thomescore, 'timageshome': timageshome,
-                       'zipped': zipped, 'zipped2': zipped2, 'zipped3': zipped3})
 
 
 def Random(request):
@@ -111,7 +109,7 @@ def Random(request):
     querystring1 = {"gameId":gamerand }
 
     headers1 = {
-        "X-RapidAPI-Key": "65e75822cdmsh1f6348ed5632425p1c5325jsn9346b8b3d66a",
+        'X-RapidAPI-Key': "c203beaed3mshdee6ff27c9b3eabp1dd3aejsn60d50c3838fa",
         "X-RapidAPI-Host": "viperscore.p.rapidapi.com"
     }
 
@@ -124,7 +122,7 @@ def Random(request):
     querystring = {"gameId": gamerand}
 
     headers = {
-        "X-RapidAPI-Key": "65e75822cdmsh1f6348ed5632425p1c5325jsn9346b8b3d66a",
+        'X-RapidAPI-Key': "c203beaed3mshdee6ff27c9b3eabp1dd3aejsn60d50c3838fa",
         "X-RapidAPI-Host": "viperscore.p.rapidapi.com"
     }
 
@@ -139,7 +137,7 @@ def Random(request):
     numberteam3 = random.randint(0, 1)
     if(numberteam3==1):
      tt="homeLineup"
-     tt2="GOSPODARZE"
+     tt2="1"
      player1 = response.json()[tt][0]['name'].split(" ")
      player1 = player1[len(player1) - 1]
      player2 = response.json()[tt][1]['name'].split(" ")
@@ -165,7 +163,7 @@ def Random(request):
 
     else:
         tt = "awayLineup"
-        tt2 = "GOŚCIE"
+        tt2 = "2"
         player1 = response.json()[tt][0]['name'].split(" ")
         player1 = player1[len(player1)-1]
         player2 = response.json()[tt][1]['name'].split(" ")
@@ -188,6 +186,26 @@ def Random(request):
         player10 = player10[len(player10)-1]
         player11 = response.json()[tt][10]['name'].split(" ")
         player11 = player11[len(player11)-1]
+    result_dict = {
+      "cookie": True
+    }
+    if request.COOKIES.get('acceptCookies') == '1':
+     result_dict = {
+        "cookie": False
+    }
+
+    if request.COOKIES.get('lang') != 'en':
+        return render(request, 'page-1.html',
+                      {'player1': player1, 'player2': player2, 'player3': player3, 'player4': player4,
+                       'player5': player5, 'player6': player6, 'player7': player7,
+                       'player8': player8, 'player9': player9, 'player10': player10, 'player11': player11, 'mecz': mecz,
+                       'wynik': wynik, 'tt2': tt2})
+    else:
+        return render(request, 'page-1en.html',
+                      {'player1': player1, 'player2': player2, 'player3': player3, 'player4': player4,
+                       'player5': player5, 'player6': player6, 'player7': player7,
+                       'player8': player8, 'player9': player9, 'player10': player10, 'player11': player11, 'mecz': mecz,
+                       'wynik': wynik, 'tt2': tt2})
 
 
 
@@ -197,8 +215,23 @@ def Random(request):
 
 
 
-    return render(request, 'page-1.html', {'player1' : player1,'player2' : player2, 'player3' : player3,'player4' : player4,'player5' : player5, 'player6' : player6, 'player7' : player7,
-                                           'player8': player8 ,'player9' : player9, 'player10' : player10, 'player11' : player11 , 'mecz':mecz,'wynik':wynik ,'tt2':tt2   })
+
+def info(request):
+    result_dict={
+        "cookie" : True
+    }
+    if request.COOKIES.get('acceptCookies')=='1':
+        result_dict = {
+            "cookie": False
+        }
+
+    if request.COOKIES.get('lang') == 'en':
+     return render(request, 'page-2en.html')
+    else:
+     return render(request, 'page-2.html')
+
+
+
 
 
 

@@ -58,9 +58,6 @@ h3{
 #tt, #tt2{
  color: red;
 }
-  .u{
-      background: rgb(255,255,255);
-      }
 
 body {
 background: rgb(34,193,195);
@@ -69,6 +66,10 @@ background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(45,63,253,0.6954
 #ee{
 margin-bottom: 20px;
 }
+  .u{
+      background: rgb(255,255,255);
+      }
+
 
 
  </style>
@@ -77,17 +78,17 @@ margin-bottom: 20px;
 {% extends 'base.html' %}
 {% block content %}
 {% if cookie  %}
-<div class="u">
+ <div class="u">
   <div id="cookiePopup" class="light display-right" style="display: block; margin: 0.5rem">
     <div id="closeIcon" style="display: block"></div>
     <div class="title-wrap">
-      <h4>Zgoda na pliki Cookies</h4>
+      <h4>Cookies agreement files</h4>
     </div>
     <div class="content-wrap">
       <div class="msg-wrap">
-        <p>Ta witryna wykorzystuje pliki cookie. Kontynuujać korzystanie z naszej witryny, akceptujesz nasza politykę prywatności</p>
+        <p>This website uses cookies. By continuing to use our site, you accept our privacy policy</p>
         <div class="btn-wrap">
-          <button class="btn-primary" onclick="cookiePopup();">Akceptuj</button>
+          <button class="btn-primary" onclick="cookiePopup();">Accept</button>
         </div>
       </div>
     </div>
@@ -96,18 +97,18 @@ margin-bottom: 20px;
 {% endif %}
 <div class="card text-center" id="ee">
   <div class="card-header">
-    <h2>FUNKCJONALNOŚĆ STRONY</h2>
-      <h1>AUTOR: Mateusz Borawski</h1>
+    <h2>FUNCTIONALITY OF THE WEBSITE</h2>
+      <h1>AUTHOR: Mateusz Borawski</h1>
 
   </div>
   <div class="card-body">
-    <h5 class="card-title">WYNIKI LIVE</h5>
-    <p class="card-text">MOŻESZ SPRAWDZIĆ WYNIKI AKTUALNIE ROZGRYWANYCH MECZÓW</p>
-      <p class="card-text">DODATKOWO DZIĘKI ROZSUWANEJ LIŚCIE MOŻESZ SPRAWDZIĆ KRAJ ORAZ LIGĘ Z TYCH ROZGRYWEK</p>
-      <p class="card-text" id="tt">Proszę o nierobienie niepotrzebnych requestów, gdyż darmowa wersja API FLESHSCORE posiada tylko 500 requestów na miesiąc :)</p>
+    <h5 class="card-title">LIVE SCORE</h5>
+    <p class="card-text">YOU CAN CHECK THE RESULTS OF CURRENTLY PLAYED MATCHES</p>
+      <p class="card-text">THANKS TO THE SLIDING LEAF YOU CAN CHECK THE COUNTRY AND THE LEAGUE FROM THESE GAMES</p>
+      <p class="card-text" id="tt">Please do not make unnecessary requests, because the free version of the FLASHSCORE API has only 500 requests per month :)</p>
 
 
-    <a href="/" class="btn btn-primary">SPRAWDŹ WYNIKI!</a>
+    <a href="/" class="btn btn-primary">CHECK THE RESULT!</a>
   </div>
 
   <div class="card-footer text-muted">
@@ -118,14 +119,14 @@ margin-bottom: 20px;
 <div class="card text-center">
 
   <div class="card-body">
-    <h5 class="card-title">GRA</h5>
-    <p class="card-text">WYLOSUJ MECZ Z MISTRZOSTW ŚWIATA 2018 (PRZYCISK START)</p>
-      <p class="card-text">MASZ 1 MINUTĘ NA WYPISANIE WYJŚCIOWEJ 11</p>
-       <p class="card-text"> ZA KAŻDE DOBRE WYPISANIE NAZWISKA=1 PUNKT</p>
-        <p class="card-text"> PO UPŁYNIĘCIU CZASU MOŻESZ SPRAWDZIĆ NIEODKRYTE NAZWISKA PRZYCISKIEM "Sprawdź" </p>
-       <p class="card-text" id="tt2">Proszę o nierobienie niepotrzebnych requestów, gdyż darmowa wersja API FLESHSCORE posiada tylko 500 requestów na miesiąc :)</p>
+    <h5 class="card-title">GAME</h5>
+    <p class="card-text">DRAW A MATCH FROM THE 2018 WORLD CHAMPIONSHIP (START BUTTON)</p>
+      <p class="card-text">YOU HAVE 1 MINUTE TO CHECK OUT THE OUTPUT 11</p>
+       <p class="card-text">FOR EVERY WRITING SURNAME = 1 POINT</p>
+        <p class="card-text">AFTER THE TIME IS WORKED, YOU CAN CHECK UNDETECTED NAMES WITH THE "Check" BUTTON</p>
+       <p class="card-text" id="tt2">Please do not make unnecessary requests, because the free version of the FLASHSCORE API has only 500 requests per month :)</p>
 
-    <a href="/page-1" class="btn btn-primary">ZAGRAJ!</a>
+    <a href="/page-1" class="btn btn-primary">PLAY!</a>
   </div>
 
   <div class="card-footer text-muted">

@@ -20,6 +20,7 @@ from . import views
 urlpatterns = [
     path('', views.MatchLive, name='matchlive'),
     path('page-1', views.Random, name='random'),
+    path('page-2', views.info, name='info'),
     path('', views.PageView.as_view()),
 	path('page-1/', views.PageOneView.as_view()),
 	path('page-2/', views.PageTwoView.as_view()),

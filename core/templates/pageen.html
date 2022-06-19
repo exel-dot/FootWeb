@@ -56,9 +56,10 @@
        h5{
       text-align: center
       }
-      .u{
+        .u{
       background: rgb(255,255,255);
       }
+
 
 
 
@@ -75,13 +76,13 @@
   <div id="cookiePopup" class="light display-right" style="display: block; margin: 0.5rem">
     <div id="closeIcon" style="display: block"></div>
     <div class="title-wrap">
-      <h4>Zgoda na pliki Cookies</h4>
+      <h4>Cookies agreement files</h4>
     </div>
     <div class="content-wrap">
       <div class="msg-wrap">
-        <p>Ta witryna wykorzystuje pliki cookie. Kontynuujać korzystanie z naszej witryny, akceptujesz nasza politykę prywatności</p>
+        <p>This website uses cookies. By continuing to use our site, you accept our privacy policy</p>
         <div class="btn-wrap">
-          <button class="btn-primary" onclick="cookiePopup();">Akceptuj</button>
+          <button class="btn-primary" onclick="cookiePopup();">Accept</button>
         </div>
       </div>
     </div>
@@ -94,7 +95,7 @@
       <div class="col-sm">
          <ul class="list-group">
             <li class="list-group-item active">
-               <h2>GOSPODARZE</h2>
+               <h2>HOME</h2>
             </li>
             {% for i,j in zipped %}
             <div class="accordion"  id="accordionExample1k">
@@ -122,7 +123,7 @@
       <div class="col-sm">
          <li class="list-group-item active">
 
-               <h2>WYNIK</h2>
+               <h2>SCORE</h2>
 
          </li>
          {% for i,j,jj,ww in zipped3 %}
@@ -138,7 +139,7 @@
                          <br>
 
 
-                           <h3> {{ i }} SZCZEGÓŁY MECZU -></h3>
+                           <h3> {{ i }} MATCH DETAILS -></h3>
                            <br>
 
 
@@ -154,13 +155,13 @@
                   data-parent="#accordionExample1">
                   <li class="list-group-item">
 
-                        <h7 >ROZGRYWKI</h7>
+                        <h7 >GAMEPLAY</h7>
 
                      <h6>{{ jj }}</h6>
                   </li>
                   <li class="list-group-item">
 
-                        <h7>KRAJ</h7>
+                        <h7>COUNTRY</h7>
 
                      <h6>{{ ww }}</h6>
                   </li>
@@ -173,7 +174,7 @@
          <ul class="list-group">
             <li class="list-group-item active">
 
-                  <h2>GOŚCIE</h2>
+                  <h2>AWAY</h2>
 
             </li>
             {% for i,j in zipped2 %}

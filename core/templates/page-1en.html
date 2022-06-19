@@ -77,10 +77,10 @@
 
 
 
+
   </style>
 </head>
 <body onload="Wczytaj()">
-
   {% extends 'base.html' %} {% block content %}
   <header>
     {% if cookie  %}
@@ -88,18 +88,19 @@
   <div id="cookiePopup" class="light display-right" style="display: block; margin: 0.5rem">
     <div id="closeIcon" style="display: block"></div>
     <div class="title-wrap">
-      <h4>Zgoda na pliki Cookies</h4>
+      <h4>Cookies agreement files</h4>
     </div>
     <div class="content-wrap">
       <div class="msg-wrap">
-        <p>Ta witryna wykorzystuje pliki cookie. Kontynuujać korzystanie z naszej witryny, akceptujesz nasza politykę prywatności</p>
+        <p>This website uses cookies. By continuing to use our site, you accept our privacy policy</p>
         <div class="btn-wrap">
-          <button class="btn-primary" onclick="cookiePopup();">Akceptuj</button>
+          <button class="btn-primary" onclick="cookiePopup();">Accept</button>
         </div>
       </div>
     </div>
   </div>
     </div>
+    {% endif %}
     <script>
     // Set the date we're counting down to
     var dt = new Date();
@@ -137,7 +138,7 @@
           <div class="text-white">
             <h1 class="mb-1">{{ mecz }}</h1>
             <h2 class="mb-3">{{ wynik }}</h2>
-            <h2 class="mb-3">SKŁAD: {{ tt2 }}</h2>
+            <h2 class="mb-3">LINEUP: {{ tt2 }}</h2>
             <div class="container">
               <div class="row">
                 <div class="col">
@@ -148,7 +149,7 @@
                 </div>
               </div>
               <div class="container">
-                <p id="demo">LOSOWANIE !</p>
+                <p id="demo">DRAW !</p>
                 <div class="row">
                   <div class="col">
                     <ul class="list-group list-group-flush">
@@ -180,7 +181,7 @@
                       <li class="list-group-item" id="myDIVV10">11</li>
                     </ul>
                   </div>
-                </div><a class="btn btn-outline-light btn-lg" role="button" onclick="myFunction()">SPRAWDŹ</a> <input type="text" class="form-control" id="input" placeholder="Wpisz nazwisko piłkarza!" >
+                </div><a class="btn btn-outline-light btn-lg" role="button" onclick="myFunction()">CHECK</a> <input type="text" class="form-control" id="input" placeholder="Type the lastname of the footballer!" >
               </div>
             </div>
           </div>
