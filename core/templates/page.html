@@ -56,18 +56,21 @@
         color: blue;
       }
 
+
+
    </style>
 </head>
 <body>
 {% extends 'base.html' %}
 {% block content %}
+
    <p>{{ x }}</p>
    <div class="container">
    <div class="row">
       <div class="col-sm">
          <ul class="list-group">
             <li class="list-group-item active">
-               <h2>GOSPODARZE </h2>
+               <h2>GOSPODARZE</h2>
             </li>
             {% for i,j in zipped %}
             <div class="accordion"  id="accordionExample1k">
@@ -78,11 +81,10 @@
                         <button class="btn btn-link collapsed"
                            type="button" data-toggle="collapse"
                            data-target="#k{{ j }}"
-                           aria-expanded="false"
-                           aria-controls="collapseThree">
+                           aria-expanded="false">
                            <center>
                               <h4>{{ i }}</h4>
-                              <h4><img src="{{ j }}" width="70" height="67"></h4>
+                              <h4><img src="{{ j }}" width="70" height="65"></h4>
                            </center>
                         </button>
                      </h2>
@@ -108,14 +110,19 @@
                      <button class="btn btn-link collapsed"
                         type="button" data-toggle="collapse"
                         data-target="#k{{ j }}"
-                        aria-expanded="false"
-                        aria-controls="collapseThree">
+                        aria-expanded="false">
+
                         <h3>{{ i }}</h3>
+
                         <h4>
-                           SZCZEGÓŁY <br>MECZU
+                           SZCZEGÓŁY MECZU
+                           <br>
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                               <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                            </svg>
+
+
+
                         </h4>
                      </button>
                   </h2>
@@ -157,8 +164,8 @@
                         <button class="btn btn-link collapsed"
                            type="button" data-toggle="collapse"
                            data-target="#k{{ j }}"
-                           aria-expanded="false"
-                           aria-controls="collapseThree">
+                           aria-expanded="false">
+
                            <center>
                               <h4>{{ i }}</h4>
                               <h4><img src="{{ j }}" width="70" height="64"></h4>
@@ -174,5 +181,6 @@
       </div>
    </div>
       {% endblock %}
+
 </body>
 </html>

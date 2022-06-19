@@ -63,7 +63,12 @@ def MatchLive(request):
                 imagesaway = response.json()['DATA'][j]['EVENTS'][i]['AWAY_IMAGES'][0]
                 turniej=response.json()['DATA'][j]['NAME']
                 kraj=response.json()['DATA'][j]['COUNTRY_NAME']
-                tablehome.append(druzyna1)
+
+                x = druzyna1.split(" ")
+
+                tablehome.append(x[0])
+                y = druzyna2.split(" ")
+                tableaway.append(y[0])
                 timageshome.append(imageshome)
                 timagesaway.append(imagesaway)
                 tableaway.append(druzyna2)
@@ -99,7 +104,8 @@ def MatchLive(request):
 
 
 def Random(request):
-    gamerand=random.randint(7659870,7659872)
+    gamerand=random.choice((7659860,7659864,7659861,765986,7659866,7659868,7659863,7659878,7659886,7659882,7659875,7659876,7659899,
+                           7659877,7659872 ,7659874 ,7659870 ,7659880 ,7659898,7659883  ,7659881,7659884 ,7659888,7659867, 7659859,7659865   ))
     url1 = "https://viperscore.p.rapidapi.com/game/"
 
     querystring1 = {"gameId":gamerand }
