@@ -81,23 +81,33 @@ def MatchLive(request):
     zipped2 = zip(tableaway, timagesaway)
     zipped3 = zip(thomescore, randomkey, turniejtab, krajtab)
     result_dict = {
-        "cookie": True
+        "cookie": True,
+        "range": range(1, len(tablehome)),
+        "tablehome": tablehome,
+        "tableaway": tableaway,
+        "thomescore": thomescore,
+        "timageshome": timageshome,
+        "zipped": zipped,
+        "zipped2": zipped2,
+        "zipped3": zipped3
     }
     if request.COOKIES.get('acceptCookies') == '1':
         result_dict = {
-            "cookie": False
+            "cookie": False,
+            "range": range(1, len(tablehome)),
+            "tablehome": tablehome,
+            "tableaway": tableaway,
+            "thomescore": thomescore,
+            "timageshome": timageshome,
+            "zipped": zipped,
+            "zipped2": zipped2,
+            "zipped3": zipped3
         }
 
     if request.COOKIES.get('lang')=='en':
-            return render(request, 'pageen.html',
-                          {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,
-                           'thomescore': thomescore, 'timageshome': timageshome,
-                           'zipped': zipped, 'zipped2': zipped2, 'zipped3': zipped3})
+            return render(request, 'pageen.html',context=result_dict)
     else:
-            return render(request, 'page.html',
-                          {'range': range(1, len(tablehome)), 'tablehome': tablehome, 'tableaway': tableaway,
-                           'thomescore': thomescore, 'timageshome': timageshome,
-                           'zipped': zipped, 'zipped2': zipped2, 'zipped3': zipped3})
+            return render(request, 'page.html',context=result_dict)
 
 
 
@@ -186,26 +196,84 @@ def Random(request):
         player10 = player10[len(player10)-1]
         player11 = response.json()[tt][10]['name'].split(" ")
         player11 = player11[len(player11)-1]
+
     result_dict = {
-      "cookie": True
+        "cookie": True,
+
+        "player1": player1,
+        "player2": player2,
+        "player3": player3,
+        "player4": player4,
+        "player5": player5,
+        "player6": player6,
+        "player7": player7,
+        "player8": player8,
+        "player9": player9,
+        "player10": player10,
+        "player11": player11,
+        "mecz": mecz,
+        "wynik": wynik,
+        "tt2": tt2,
     }
     if request.COOKIES.get('acceptCookies') == '1':
-     result_dict = {
-        "cookie": False
-    }
+        result_dict = {
+            "cookie": False,
 
-    if request.COOKIES.get('lang') != 'en':
-        return render(request, 'page-1.html',
-                      {'player1': player1, 'player2': player2, 'player3': player3, 'player4': player4,
-                       'player5': player5, 'player6': player6, 'player7': player7,
-                       'player8': player8, 'player9': player9, 'player10': player10, 'player11': player11, 'mecz': mecz,
-                       'wynik': wynik, 'tt2': tt2})
+            "player1": player1,
+            "player2": player2,
+            "player3": player3,
+            "player4": player4,
+            "player5": player5,
+            "player6": player6,
+            "player7": player7,
+            "player8": player8,
+            "player9": player9,
+            "player10": player10,
+            "player11": player11,
+            "mecz": mecz,
+            "wynik": wynik,
+            "tt2": tt2,
+        }
+    # gamerand = random.choice((1,2))
+    # if gamerand==1:
+    #     mecz="POLAND-SENEGAL"
+    #     wynik="1-2";
+    #     tt2="GOSPODARZE"
+    #     player1="Szczęsny"
+    #     player2 ="Piszczek"
+    #     player3 ="Cionek"
+    #     player4 ="Pazdan"
+    #     player5 ="Rybus"
+    #     player6 ="Zieliński"
+    #     player7 ="Krychowiak"
+    #     player8 ="Grociski"
+    #     player9 ="Błaszczykowski"
+    #     player10 ="Milik"
+    #     player11 ="Lewandowski"
+    # elif gamerand==2:
+    #     mecz = "FRANCE-CROATIA"
+    #     wynik = "4-2";
+    #     tt2 = "GOSPODARZE"
+    #     player1 = "Lloris"
+    #     player2 = "Pavard"
+    #     player3 = "Varane"
+    #     player4 = "Umtiti"
+    #     player5 = "Hernandez"
+    #     player6 = "Mbappe"
+    #     player7 = "Pogba"
+    #     player8 = "Kante"
+    #     player9 = "Maduidi"
+    #     player10 = "Griezmann"
+    #     player11 = "Giroud"
+
+    if request.COOKIES.get('lang') == 'en':
+     return render(request, 'page-1en.html',context=result_dict)
     else:
-        return render(request, 'page-1en.html',
-                      {'player1': player1, 'player2': player2, 'player3': player3, 'player4': player4,
-                       'player5': player5, 'player6': player6, 'player7': player7,
-                       'player8': player8, 'player9': player9, 'player10': player10, 'player11': player11, 'mecz': mecz,
-                       'wynik': wynik, 'tt2': tt2})
+        return render(request, 'page-1.html',context=result_dict)
+
+
+
+
 
 
 
@@ -226,9 +294,9 @@ def info(request):
         }
 
     if request.COOKIES.get('lang') == 'en':
-     return render(request, 'page-2en.html')
+     return render(request, 'page-2en.html',context=result_dict )
     else:
-     return render(request, 'page-2.html')
+     return render(request, 'page-2.html', context=result_dict )
 
 
 

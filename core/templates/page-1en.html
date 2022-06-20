@@ -77,12 +77,13 @@
 
 
 
-
   </style>
 </head>
 <body onload="Wczytaj()">
+
   {% extends 'base.html' %} {% block content %}
   <header>
+    x=result_dict["cookie"]
     {% if cookie  %}
     <div class="u">
   <div id="cookiePopup" class="light display-right" style="display: block; margin: 0.5rem">
@@ -94,7 +95,7 @@
       <div class="msg-wrap">
         <p>This website uses cookies. By continuing to use our site, you accept our privacy policy</p>
         <div class="btn-wrap">
-          <button class="btn-primary" onclick="cookiePopup();">Accept</button>
+          <button class="btn-primary" onclick="cookiePopup();">Akceptuj</button>
         </div>
       </div>
     </div>
@@ -102,6 +103,7 @@
     </div>
     {% endif %}
     <script>
+
     // Set the date we're counting down to
     var dt = new Date();
          dt.setMinutes( dt.getMinutes() + 1 );
@@ -149,7 +151,7 @@
                 </div>
               </div>
               <div class="container">
-                <p id="demo">DRAW !</p>
+                <p id="demo"DRAW> !</p>
                 <div class="row">
                   <div class="col">
                     <ul class="list-group list-group-flush">
@@ -181,13 +183,14 @@
                       <li class="list-group-item" id="myDIVV10">11</li>
                     </ul>
                   </div>
-                </div><a class="btn btn-outline-light btn-lg" role="button" onclick="myFunction()">CHECK</a> <input type="text" class="form-control" id="input" placeholder="Type the lastname of the footballer!" >
+                </div><a class="btn btn-outline-light btn-lg" role="button" onclick="myFunction()">CHECK</a> <input type="text" class="form-control" id="input" placeholder="Type the surname of player!" >
               </div>
             </div>
           </div>
         </div>
       </div><input type="hidden" id="p1" name="variable" value="{{ player1 }}">
     </div><input type="hidden" id="p2" name="variable" value="{{ player2 }}"> <input type="hidden" id="p3" name="variable" value="{{ player3 }}"> <input type="hidden" id="p4" name="variable" value="{{ player4 }}"> <input type="hidden" id="p5" name="variable" value="{{ player5 }}"> <input type="hidden" id="p6" name="variable" value="{{ player6 }}"> <input type="hidden" id="p7" name="variable" value="{{ player7 }}"> <input type="hidden" id="p8" name="variable" value="{{ player8 }}"> <input type="hidden" id="p9" name="variable" value="{{ player9 }}"> <input type="hidden" id="p10" name="variable" value="{{ player10 }}"> <input type="hidden" id="p11" name="variable" value="{{ player11 }}"> <input type="hidden" id="check" name="variable" value="0">
+
     <script>
 
 
@@ -328,7 +331,11 @@
 
     }
 
+
     </script>
-  </header>{% endblock %}
+
+  </header>
+
 </body>
+ {% endblock %}
 </html>
